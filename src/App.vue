@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { progressText } from './utils/mainPageWords'
+import { mainPageDescriptionCard } from './utils/mainPageDescriptionCard'
 
 const theme = ref('light')
 
@@ -38,12 +40,12 @@ function onClick() {
             :ripple="{ class: `ripple-yellow` }"
             >Зарегистрироваться</v-btn
           >
-          <!-- <v-btn
+          <v-btn
             :icon="theme === 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night'"
             text="Toggle Theme"
             slim
             @click="onClick"
-          ></v-btn> -->
+          ></v-btn>
         </div>
       </v-app-bar>
       <v-main>
@@ -61,7 +63,7 @@ function onClick() {
             "
           >
             <v-col cols="2">
-              <div style="background-color: red; width: 180px; height: 200px"></div>
+              <div style="background-color: #fca311; width: 180px; height: 200px"></div>
             </v-col>
             <v-col cols="10">
               <div class="d-flex flex-column">
@@ -80,13 +82,77 @@ function onClick() {
             rounded="lg"
             >Стать организатором</v-btn
           >
-          <!-- <v-divider
+
+          <div
+            class="d-flex justify-space-between align-center"
+            style="margin-top: 120px; color: #14213d"
+          >
+            <div
+              v-for="(value, index) in progressText"
+              :key="index"
+              style="text-align: center; line-height: 0.8"
+            >
+              <h1 style="font-weight: 900; font-size: 56px">{{ value.title }}+</h1>
+              <h2 style="font-size: 36px">{{ value.text }}</h2>
+            </div>
+          </div>
+          <v-divider
             :thickness="3"
             style="margin-top: 80px; opacity: 1"
             color="#fca311"
-          ></v-divider> -->
+          ></v-divider>
+          <v-row style="margin-top: 100px; --v-row-gap: 36px">
+            <v-col cols="4" v-for="(value, index) in mainPageDescriptionCard" :key="index">
+              <v-card
+                max-width="350px"
+                min-height="390px"
+                color="#F5F9FF"
+                style="box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.15)"
+              >
+                <v-card-title class="mt-4">
+                  <div
+                    style="
+                      width: 80px;
+                      height: 80px;
+                      border-radius: 100%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    "
+                    :style="{ backgroundColor: value.colorCircle }"
+                  >
+                    <v-icon size="48" :color="value.colorIcon">{{ value.icon }}</v-icon>
+                  </div>
+                  <div class="mt-4" style="font-size: 24px; text-align: center">
+                    {{ value.title }}
+                  </div></v-card-title
+                >
+                <v-card-item class="" style="font-weight: 500; font-size: 18px">{{
+                  value.text
+                }}</v-card-item>
+              </v-card>
+            </v-col>
+          </v-row>
+          <v-divider
+            :thickness="3"
+            style="margin-top: 80px; opacity: 1; margin-bottom: 100px"
+            color="#fca311"
+          ></v-divider>
         </v-container>
       </v-main>
+      <v-footer color="transparent" style="border-top: 2px solid #fca311">
+        <div class="d-flex align-center justify-space-between" style="width: 100%">
+          <div class="d-flex align-center">
+            <v-btn class="text-none opacity-100" :ripple="false" variant="text"
+              >Конфидициальность</v-btn
+            >
+            <v-btn class="text-none opacity-100" :ripple="false" variant="text"
+              >Пользовательское соглашение</v-btn
+            >
+          </div>
+          <div>Copyright ©{{ new Date().getFullYear() }} — <strong>Hubbly</strong></div>
+        </div>
+      </v-footer>
     </v-app>
   </v-responsive>
 </template>
