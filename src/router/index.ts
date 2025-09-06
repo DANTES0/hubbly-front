@@ -13,6 +13,26 @@ const router = createRouter({
       name: Pages.Login.Name,
       component: import('@/pages/Login.vue'),
     },
+    {
+      path: Pages.Registration.StaticPath,
+      name: Pages.Registration.Name,
+      component: import('@/pages/Registration.vue'),
+    },
+    {
+      path: Pages.ResetPassword.StaticPath,
+      name: Pages.ResetPassword.Name,
+      component: import('@/pages/ResetPassword.vue'),
+    },
+    {
+      path: Pages.ResetConfirmPassword.StaticPath,
+      name: Pages.ResetConfirmPassword.Name,
+      component: import('@/pages/ResetPasswordConfirm.vue'),
+    },
+    {
+      path: Pages.ConfirmEmail.StaticPath,
+      name: Pages.ConfirmEmail.Name,
+      component: import('@/pages/ConfirmEmail.vue'),
+    },
   ],
 })
 

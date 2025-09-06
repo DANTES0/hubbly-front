@@ -34,6 +34,7 @@ defineProps<{
         size="small"
         class="text-none"
         :ripple="{ class: `ripple-yellow` }"
+        :to="Pages.Registration.StaticPath"
         >Зарегистрироваться</v-btn
       >
       <v-btn

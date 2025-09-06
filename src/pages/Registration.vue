@@ -11,14 +11,14 @@ const visiblePassword = ref(false)
     <v-card
       height="450px"
       width="550px"
-      class="ml-auto mr-auto py-4 px-4"
+      class="ml-auto mr-auto py-4 px-4 pb-16"
       style="height: fit-content"
       color="#F5F9FF"
       elevation="2"
     >
       <div class="d-flex align-center flex-column">
         <v-img :src="logo" width="200" aspect-ratio="1/1" />
-        <h2 class="mt-2 mb-8">Добро пожаловать</h2>
+        <h2 class="mt-2 mb-8">Создание аккаунта</h2>
         <v-text-field
           color="#14213d"
           variant="outlined"
@@ -36,33 +36,30 @@ const visiblePassword = ref(false)
           :type="!visiblePassword ? 'password' : 'text'"
           density="compact"
           placeholder="Пароль"
-          hide-details
           :append-inner-icon="!visiblePassword ? 'mdi-eye-outline' : 'mdi-eye-off-outline'"
           @click:append-inner="visiblePassword = !visiblePassword"
         />
-        <v-checkbox label="Запомнить данные" hide-details color="#fca311" />
-        <div>
-          <v-btn
-            class="text-none btn-text"
-            variant="plain"
-            :ripple="false"
-            :to="Pages.ResetPassword.StaticPath"
-            >Забыли пароль?</v-btn
-          >
-          <v-btn
-            class="text-none btn-text"
-            variant="plain"
-            :ripple="false"
-            :to="Pages.Registration.StaticPath"
-            >Зарегистрироваться</v-btn
-          >
-        </div>
-        <v-btn class="btn-common text-none mt-4" min-width="120px" rounded="xl" :to="'/'"
-          >Войти</v-btn
+        <v-text-field
+          color="#14213d"
+          variant="outlined"
+          min-width="300"
+          label="Введите пароль повторно"
+          :type="!visiblePassword ? 'password' : 'text'"
+          density="compact"
+          placeholder="Пароль"
+          :append-inner-icon="!visiblePassword ? 'mdi-eye-outline' : 'mdi-eye-off-outline'"
+          @click:append-inner="visiblePassword = !visiblePassword"
+        />
+        <v-btn
+          class="text-none btn-text"
+          variant="plain"
+          :ripple="false"
+          :to="Pages.Login.StaticPath"
+          >У вас уже есть аккаунт?</v-btn
         >
-        <div class="mt-8 text-center" style="font-weight: 300; font-size: 12px">
-          Нажимая “Войти”, вы принимаете пользовательское соглашение и политику конфиденциальности
-        </div>
+        <v-btn class="btn-common text-none mt-4" min-width="120px" rounded="xl"
+          >Зарегистрироваться</v-btn
+        >
       </div>
     </v-card>
   </v-container>

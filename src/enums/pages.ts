@@ -5,4 +5,20 @@ export const Pages = Object.freeze({
     StaticPath: `${AuthPath}/login`,
     Name: 'login',
   },
+  Registration: {
+    StaticPath: `${AuthPath}/registration`,
+    Name: 'registration',
+  },
+  ResetPassword: {
+    StaticPath: `${AuthPath}/reset`,
+    Name: 'reset',
+  },
+  ResetConfirmPassword: {
+    StaticPath: `${AuthPath}/reset/confirm`,
+    Name: 'resetConfirm',
+  },
+  ConfirmEmail: {
+    StaticPath: `${AuthPath}/confirm`,
+    Name: 'confirm',
+  },
 })
