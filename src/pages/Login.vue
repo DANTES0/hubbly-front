@@ -40,7 +40,7 @@ const visiblePassword = ref(false)
           :append-inner-icon="!visiblePassword ? 'mdi-eye-outline' : 'mdi-eye-off-outline'"
           @click:append-inner="visiblePassword = !visiblePassword"
         />
-        <v-checkbox label="Запомнить данные" hide-details color="#fca311" />
+        <v-checkbox label="Запомнить данные" hide-details color="#fca311" min-width="320" />
         <div>
           <v-btn
             class="text-none btn-text"

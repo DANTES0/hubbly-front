@@ -21,4 +21,8 @@ export const Pages = Object.freeze({
     StaticPath: `${AuthPath}/confirm`,
     Name: 'confirm',
   },
+  MyEvents: {
+    StaticPath: `/events/my`,
+    Name: 'myevents',
+  },
 })

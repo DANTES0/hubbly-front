@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Pages } from '@/enums/pages'
 import { useBreakpoints } from '@/hooks/useBreakpoints'
 import { mainPageDescriptionCard } from '@/utils/mainPageDescriptionCard'
 import { progressText } from '@/utils/mainPageWords'
@@ -37,7 +38,12 @@ const { isLgAndUp } = useBreakpoints()
         <h1>контролем</h1>
       </div>
     </v-row>
-    <v-btn width="250" class="mx-auto text-none main-page-button" color="#fca311" rounded="lg"
+    <v-btn
+      width="250"
+      class="mx-auto text-none main-page-button"
+      color="#fca311"
+      rounded="lg"
+      :to="Pages.Registration.StaticPath"
       >Стать организатором</v-btn
     >
 

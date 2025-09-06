@@ -17,9 +17,11 @@ function onClick() {
   <v-responsive>
     <v-app :theme="theme">
       <NavBar v-if="isActiveBars" :theme="theme" :onClick="onClick" />
-      <v-main>
-        <router-view></router-view>
-      </v-main>
+      <div class="d-flex flex-column" style="min-height: 100vh">
+        <v-main>
+          <router-view></router-view>
+        </v-main>
+      </div>
       <Footer v-if="isActiveBars" />
     </v-app>
   </v-responsive>

@@ -33,6 +33,11 @@ const router = createRouter({
       name: Pages.ConfirmEmail.Name,
       component: import('@/pages/ConfirmEmail.vue'),
     },
+    {
+      path: Pages.MyEvents.StaticPath,
+      name: Pages.MyEvents.Name,
+      component: import('@/pages/MyEvents.vue'),
+    },
   ],
 })
 
