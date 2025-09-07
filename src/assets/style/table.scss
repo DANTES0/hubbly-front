@@ -1,0 +1,26 @@
+.table-head {
+  text-transform: uppercase;
+}
+
+.table-bg {
+  background-color: #f5f9ff !important;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #eff6ff !important;
+}
+.table-wrapper {
+  max-height: 450px;
+  overflow-y: auto;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.table-head th {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: #f5f9ff;
+  z-index: 1;
+  background-clip: padding-box;
+}

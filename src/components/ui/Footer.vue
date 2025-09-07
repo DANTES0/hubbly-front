@@ -4,10 +4,8 @@
   <v-footer color="transparent" style="border-top: 2px solid #fca311">
     <div class="d-flex align-center justify-space-between" style="width: 100%">
       <div class="d-flex align-center">
-        <v-btn class="text-none opacity-100" :ripple="false" variant="text"
-          >Конфидициальность</v-btn
-        >
-        <v-btn class="text-none opacity-100" :ripple="false" variant="text"
+        <v-btn class="text-none btn-text" :ripple="false" variant="plain">Конфидициальность</v-btn>
+        <v-btn class="text-none btn-text" :ripple="false" variant="plain"
           >Пользовательское соглашение</v-btn
         >
       </div>
