@@ -38,6 +38,23 @@ const router = createRouter({
       name: Pages.MyEvents.Name,
       component: import('@/pages/MyEvents.vue'),
     },
+    {
+      path: Pages.CreateEvents.StaticPath,
+      name: Pages.CreateEvents.Name,
+      component: import('@/pages/CreateEvent.vue'),
+      children: [
+        {
+          path: Pages.CreateEvents.Children.MainInfo.StaticPath,
+          name: Pages.CreateEvents.Children.MainInfo.Name,
+          component: import('@/components/pages/createEvent/MainInfo.vue'),
+        },
+        {
+          path: Pages.CreateEvents.Children.Templates.StaticPath,
+          name: Pages.CreateEvents.Children.Templates.Name,
+          component: import('@/components/pages/createEvent/Templates.vue'),
+        },
+      ],
+    },
   ],
 })
 

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import EventCard from '@/components/pages/myEvent/EventCard.vue'
 import EventTable from '@/components/pages/myEvent/EventTable.vue'
+import { Pages } from '@/enums/pages'
 import { myEventCard } from '@/utils/myEventCard'
 import { computed, ref } from 'vue'
 
@@ -21,7 +22,9 @@ const myEventView = ref<'card' | 'table'>('card')
   <v-container>
     <h1 class="text-uppercase text-center">Мои мероприятия</h1>
     <div class="d-flex justify-space-between">
-      <v-btn variant="outlined" rounded="xl" class="text-none">Создать</v-btn>
+      <v-btn variant="outlined" rounded="xl" class="text-none" :to="Pages.CreateEvents.StaticPath"
+        >Создать</v-btn
+      >
       <div class="d-flex align-center">
         <div>Вид отображения</div>
         <v-item-group v-model="myEventView" mandatory>
@@ -44,7 +47,7 @@ const myEventView = ref<'card' | 'table'>('card')
         </v-item-group>
       </div>
     </div>
-    <v-card style="height: fit-content" color="#F5F9FF" elevation="2" class="px-6 py-6">
+    <v-card style="height: fit-content" color="#EFF6FF" elevation="2" class="px-6 py-6">
       <v-row v-if="myEventView == 'card'">
         <EventCard
           v-for="(item, index) in paginatedEvents"
