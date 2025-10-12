@@ -26,16 +26,26 @@ export const Pages = Object.freeze({
     Name: 'myevents',
   },
   CreateEvents: {
-    StaticPath: `/events/create`,
+    StaticPath: `/events`,
     Name: 'create-events',
     Children: {
       MainInfo: {
-        StaticPath: `info`,
-        Name: 'info',
+        StaticPath: 'info',
+        Name: 'create-events-info',
       },
       Templates: {
         StaticPath: 'templates',
-        Name: 'templates',
+        Name: 'create-events-templates',
+      },
+      RegistrationForm: {
+        StaticPath: 'registration-form',
+        Name: 'create-events-registration-form',
+        Children: {
+          Edit: {
+            StaticPath: 'edit',
+            Name: 'create-events-registration-form-edit',
+          },
+        },
       },
     },
   },

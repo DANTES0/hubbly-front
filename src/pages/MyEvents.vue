@@ -22,7 +22,11 @@ const myEventView = ref<'card' | 'table'>('card')
   <v-container>
     <h1 class="text-uppercase text-center">Мои мероприятия</h1>
     <div class="d-flex justify-space-between">
-      <v-btn variant="outlined" rounded="xl" class="text-none" :to="Pages.CreateEvents.StaticPath"
+      <v-btn
+        variant="outlined"
+        rounded="xl"
+        class="text-none"
+        :to="{ name: Pages.CreateEvents.Name }"
         >Создать</v-btn
       >
       <div class="d-flex align-center">

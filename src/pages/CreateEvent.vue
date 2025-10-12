@@ -44,25 +44,71 @@ const date = ref('')
           link
           prepend-icon="mdi-information-outline"
           title="Основная информация"
-          :to="Pages.CreateEvents.Children.MainInfo.StaticPath"
+          :to="{ name: Pages.CreateEvents.Children.MainInfo.Name }"
           active-class="active-link"
           :ripple="false"
         ></v-list-item>
-        <v-list-item
-          link
-          prepend-icon="mdi-file-document-outline"
-          title="Шаблоны"
-          :to="Pages.CreateEvents.Children.Templates.StaticPath"
-          active-class="active-link"
-          :ripple="false"
-        ></v-list-item>
-        <v-list-item
-          link
-          prepend-icon="mdi-form-select"
-          title="Форма регистрации"
-          active-class="active-link"
-          :ripple="false"
-        ></v-list-item>
+        <v-list-group value="templates">
+          <template v-slot:activator="{ props }">
+            <v-list-item
+              v-bind="props"
+              link
+              prepend-icon="mdi-file-document-outline"
+              title="Шаблоны"
+              active-class="active-link"
+              :ripple="false"
+            ></v-list-item>
+          </template>
+          <v-list-item
+            link
+            prepend-icon="mdi-map-legend"
+            title="Шаблоны мероприятия"
+            :to="{ name: Pages.CreateEvents.Children.Templates.Name }"
+            active-class="active-link"
+            :ripple="false"
+            class="sub-list"
+          >
+          </v-list-item>
+          <v-list-item
+            link
+            prepend-icon="mdi-file-account"
+            title="Мои шаблоны"
+            active-class="active-link"
+            :ripple="false"
+            class="sub-list"
+          >
+          </v-list-item>
+        </v-list-group>
+        <v-list-group value="registrationForm">
+          <template v-slot:activator="{ props }">
+            <v-list-item
+              v-bind="props"
+              link
+              prepend-icon="mdi-form-select"
+              title="Форма регистрации"
+              active-class="active-link"
+              :ripple="false"
+            ></v-list-item>
+          </template>
+          <v-list-item
+            link
+            prepend-icon="mdi-map-legend"
+            title="Предпросмотр"
+            :to="Pages.CreateEvents.Children.Templates.StaticPath"
+            active-class="active-link"
+            :ripple="false"
+            class="sub-list"
+          />
+          <v-list-item
+            link
+            prepend-icon="mdi-book-edit-outline"
+            title="Редактирование"
+            :to="{ name: Pages.CreateEvents.Children.RegistrationForm.Children.Edit.Name }"
+            active-class="active-link"
+            :ripple="false"
+            class="sub-list"
+          />
+        </v-list-group>
         <v-list-item
           link
           prepend-icon="mdi-account-key-outline"
@@ -111,4 +157,7 @@ const date = ref('')
 
 // :deep(.v-list-item--active .v-icon) {
 // }
+.sub-list {
+  padding-left: 40px !important;
+}
 </style>
