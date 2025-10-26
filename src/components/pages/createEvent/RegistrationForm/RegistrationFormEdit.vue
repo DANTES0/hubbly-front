@@ -2,7 +2,12 @@
 import draggable from 'vuedraggable'
 import { ref, type Component } from 'vue'
 import { v4 as uuidv4 } from 'uuid'
-import { FIELD_TEMPLATES, type FieldTemplate, type FormField } from '@/types/RgistrationForm/Form'
+import {
+  FIELD_TEMPLATES,
+  type FieldTemplate,
+  type FormField,
+  type FormFieldTemplateOptions,
+} from '@/types/RgistrationForm/Form'
 import { useRegistrationFormStore } from '@/stores/registrationFormStore'
 import TextFieldInput from './components/TextFieldInput.vue'
 import RegistrationFormDialog from './components/RegistrationFormDialog.vue'
@@ -144,16 +149,18 @@ function cloneField(template: FieldTemplate): FormField {
   </v-navigation-drawer>
   <RegistrationFormDialog
     @updateFieldTemplate="
-      (event) => {
+      (event: FormFieldTemplateOptions) => {
         console.log(event)
         if (editingField && editingField.options) {
-          editingField.options.nameField = event
+          editingField.options.nameField = event.nameField
+          editingField.options.autocompleteItems = event.autocompleteItems
         }
         console.log('emit editField', editingField)
         console.log('emit formfields', store.fields)
       }
     "
     v-model="isDialog"
+    :options="editingField?.options"
     :type="editingField?.type"
   />
 </template>

@@ -11,8 +11,9 @@ const store = useRegistrationFormStore()
       <div v-for="field in store.fields" :key="field.id">
         <component
           :is="dataTypeComponents[field.type]"
-          :label="field.options.nameField"
+          :label="field.options?.nameField"
           :type="field.type"
+          :items="field.options?.autocompleteItems"
         />
       </div>
     </v-card-text>

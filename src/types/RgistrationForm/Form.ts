@@ -1,3 +1,4 @@
+import type { AutocompleteFieldType } from '@/components/pages/createEvent/RegistrationForm/helpers/autocompleteType'
 import { mask } from '@/utils/mask'
 import type { Component } from 'vue'
 
@@ -22,10 +23,13 @@ export interface FieldTemplate {
 
 export interface FormField extends FieldTemplate {
   id: string
-  options: {
-    nameField: string
-    rules: []
-  }
+  options?: FormFieldTemplateOptions
+}
+
+export interface FormFieldTemplateOptions {
+  nameField?: string
+  rules?: []
+  autocompleteItems?: AutocompleteFieldType[]
 }
 
 export const FIELD_TEMPLATES: FieldTemplate[] = [

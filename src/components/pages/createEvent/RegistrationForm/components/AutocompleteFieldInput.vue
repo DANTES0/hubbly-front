@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { FieldType } from '@/types/RgistrationForm/Form'
+import type { AutocompleteFieldType } from '../helpers/autocompleteType'
 
 const props = withDefaults(
   defineProps<{
@@ -7,7 +8,7 @@ const props = withDefaults(
     disabled?: boolean
     placeholder?: string
     type?: FieldType
-    items: string[]
+    items: AutocompleteFieldType[]
   }>(),
   {
     disabled: false,
@@ -32,5 +33,7 @@ const model = defineModel<string>({ default: null })
     :type="type"
     :disabled="props.disabled"
     :items="props.items"
+    item-title="value"
+    item-value="value"
   />
 </template>
