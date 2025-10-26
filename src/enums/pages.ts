@@ -45,6 +45,10 @@ export const Pages = Object.freeze({
             StaticPath: 'edit',
             Name: 'create-events-registration-form-edit',
           },
+          Preview: {
+            StaticPath: 'preview',
+            Name: 'create-events-registration-form-preview',
+          },
         },
       },
     },

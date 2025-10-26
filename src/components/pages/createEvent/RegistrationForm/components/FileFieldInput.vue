@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import type { FieldType } from '@/types/RgistrationForm/Form'
-import { computed } from 'vue'
-import { rules } from '../helpers/fieldRules'
 
 const props = withDefaults(
   defineProps<{
@@ -10,7 +8,6 @@ const props = withDefaults(
     placeholder?: string
     type?: FieldType
     fieldRules?: []
-    mask?: string
   }>(),
   {
     disabled: false,
@@ -19,19 +16,11 @@ const props = withDefaults(
     mask: undefined,
   },
 )
-
-const defaultRules = computed(() => {
-  console.log(props.type)
-  if (props.type == 'email') {
-    return [rules.email]
-  }
-  return []
-})
-const model = defineModel<string>({ default: '' })
+const model = defineModel<File[]>({ default: null })
 </script>
 
 <template>
-  <v-text-field
+  <v-file-input
     color="#14213d"
     variant="outlined"
     :label="props.label"
@@ -40,7 +29,8 @@ const model = defineModel<string>({ default: '' })
     min-width="300"
     density="compact"
     :type="type"
+    hide-details
     :disabled="props.disabled"
-    :rules="defaultRules.length !== 0 ? defaultRules : props.fieldRules"
+    multiple
   />
 </template>

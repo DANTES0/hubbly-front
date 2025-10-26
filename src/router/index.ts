@@ -56,7 +56,7 @@ const router = createRouter({
           name: Pages.CreateEvents.Children.Templates.Name,
           component: () => import('@/components/pages/createEvent/Templates.vue'),
         },
-        // /events/registration-form → обёртка
+        // /events/registration-form
         {
           path: Pages.CreateEvents.Children.RegistrationForm.StaticPath,
           name: Pages.CreateEvents.Children.RegistrationForm.Name,
@@ -68,6 +68,14 @@ const router = createRouter({
               name: Pages.CreateEvents.Children.RegistrationForm.Children.Edit.Name,
               component: () =>
                 import('@/components/pages/createEvent/RegistrationForm/RegistrationFormEdit.vue'),
+            },
+            {
+              path: Pages.CreateEvents.Children.RegistrationForm.Children.Preview.StaticPath,
+              name: Pages.CreateEvents.Children.RegistrationForm.Children.Preview.Name,
+              component: () =>
+                import(
+                  '@/components/pages/createEvent/RegistrationForm/RegistrationFormPreview.vue'
+                ),
             },
           ],
         },

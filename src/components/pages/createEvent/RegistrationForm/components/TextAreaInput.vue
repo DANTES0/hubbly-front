@@ -1,46 +1,29 @@
 <script setup lang="ts">
-import type { FieldType } from '@/types/RgistrationForm/Form'
-import { computed } from 'vue'
-import { rules } from '../helpers/fieldRules'
-
 const props = withDefaults(
   defineProps<{
     label: string
     disabled?: boolean
     placeholder?: string
-    type?: FieldType
-    fieldRules?: []
-    mask?: string
   }>(),
   {
     disabled: false,
     placeholder: 'Введите название',
-    type: 'text',
-    mask: undefined,
   },
 )
 
-const defaultRules = computed(() => {
-  console.log(props.type)
-  if (props.type == 'email') {
-    return [rules.email]
-  }
-  return []
-})
 const model = defineModel<string>({ default: '' })
 </script>
 
 <template>
-  <v-text-field
+  <v-textarea
     color="#14213d"
     variant="outlined"
     :label="props.label"
     :placeholder="props.placeholder"
     v-model="model"
+    hide-details
     min-width="300"
     density="compact"
-    :type="type"
     :disabled="props.disabled"
-    :rules="defaultRules.length !== 0 ? defaultRules : props.fieldRules"
   />
 </template>

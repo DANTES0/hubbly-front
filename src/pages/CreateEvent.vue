@@ -94,7 +94,7 @@ const date = ref('')
             link
             prepend-icon="mdi-map-legend"
             title="Предпросмотр"
-            :to="Pages.CreateEvents.Children.Templates.StaticPath"
+            :to="{ name: Pages.CreateEvents.Children.RegistrationForm.Children.Preview.Name }"
             active-class="active-link"
             :ripple="false"
             class="sub-list"
